@@ -1,7 +1,8 @@
 import { useState} from "react"
 
-export default function RecieptTextBox() {
+export default function RecieptTextBox({ index }) {
     const [price, setPrice] = useState("")
+    const indexForParent = index
 
     // Pattern matches a floating point number or an integer
     const pattern = /^[0-9]+\.{0,1}[0-9]*/
