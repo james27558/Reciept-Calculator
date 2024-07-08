@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <RecieptUIBox />
+        <RecieptUIBox name = "Nacoya" recieptNo={0}/>
 
       </header>
     </div>
