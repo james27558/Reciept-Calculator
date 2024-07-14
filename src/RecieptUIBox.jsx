@@ -1,8 +1,10 @@
 import RecieptTextBox from "./RecieptTextBox";
 
 
-export default function RecieptUIBox() {
+function RecieptUIBox() {
     return (
         <RecieptTextBox />
     )
 }
+
+export default RecieptUIBox;

@@ -1,6 +1,6 @@
 import { useState} from "react"
 
-export default function RecieptTextBox() {
+function RecieptTextBox() {
     const [price, setPrice] = useState("")
 
     // Pattern matches a floating point number or an integer
@@ -34,3 +34,5 @@ export default function RecieptTextBox() {
         <input type="text" inputMode ="numeric"  onChange={(e) => setInputIfValid(e.target.value)  } value={price} min="0" max="999"  />
     )
 }
+
+export default RecieptTextBox;
