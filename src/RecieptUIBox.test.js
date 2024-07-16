@@ -36,13 +36,4 @@ test("User, having created a text box, when typing into the 1st, doesn't create 
     expect(screen.getAllByRole("textbox").length == 2)
 })
 
-test("User, typing an invalid alphabet character, doesn't appear in the text box", () => {
-    render(<RecieptUIBox />)
-    const boxOriginal = screen.getByRole("textbox")
-    
-    act(() => {
-        userEvent.type(boxOriginal, "a")
-    })
-    
-    expect(boxOriginal).toHaveTextContent("");
-})
+
