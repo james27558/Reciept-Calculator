@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {act} from "react";
 // import renderer from 'react-test-renderer';
-import RecieptUIBox from "./RecieptUIBox";
+import RecieptUIBox from "./RecieptUIBox.tsx";
 
 test("Instantiation spawns one text box", () => {
     render(<RecieptUIBox />)
