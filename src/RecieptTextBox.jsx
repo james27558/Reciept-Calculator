@@ -1,6 +1,6 @@
-import { useState} from "react"
+import { useEffect, useState} from "react"
 
-function RecieptTextBox() {
+function RecieptTextBox({ index, updateHandler }) {
     const [price, setPrice] = useState("")
 
     // Pattern matches a floating point number or an integer
@@ -9,7 +9,7 @@ function RecieptTextBox() {
     /*
         Returns true if the argument is a valid price (non NaN floating point or integer with no alphabetical characters or symbols except .)
     */
-    function validateInput(text) {
+    function validateInputTextFormat(text) {
         const regexResults = pattern.exec(text)
 
         return  (regexResults !== null && regexResults.length == 1 && regexResults[0].length == text.length) || text.length == 0
@@ -20,17 +20,14 @@ function RecieptTextBox() {
         Validates the input and sets the state such that the state only contains a non NaN floating point number or integer
     */
     function setInputIfValid(floatOrNaN) {
-        
-        if (parseFloat(floatOrNaN) !== NaN && validateInput(floatOrNaN)) {
+        if (parseFloat(floatOrNaN) !== NaN && validateInputTextFormat(floatOrNaN)) {
             setPrice(floatOrNaN)
-        }
 
+            if (updateHandler != undefined) updateHandler(floatOrNaN, index)   
+        }
     }
 
-// 
-//&& setPrice(e.target.value)
     return (
-        
         <input type="text" inputMode ="numeric"  onChange={(e) => setInputIfValid(e.target.value)  } value={price} min="0" max="999"  />
     )
 }
